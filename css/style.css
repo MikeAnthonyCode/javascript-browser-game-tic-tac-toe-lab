@@ -1,0 +1,246 @@
+/*----------------------------- Body Styling -----------------------------*/
+
+/*
+We use Flexbox to center the entire game on the page.
+
+display: flex
+    Activates Flexbox.
+
+flex-direction: column
+    Arranges the elements vertically instead of horizontally.
+
+align-items: center
+    Centers elements horizontally.
+
+justify-content: center
+    Centers elements vertically.
+
+min-height: 100vh
+    Makes the body at least as tall as the browser window.
+
+The combination of these properties places the game
+in the center of the screen.
+*/
+
+body {
+    background-color: #eef2f7;
+    font-family: system-ui, sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+/*----------------------------- Game Title -----------------------------*/
+
+/*
+Styles the main Tic-Tac-Toe heading.
+
+font-size controls the text size.
+color changes the text color.
+margin-bottom adds space below the heading.
+*/
+
+h1 {
+    font-size: 42px;
+    color: #253047;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
+/*----------------------------- Game Message -----------------------------*/
+
+/*
+Styles the message showing whose turn it is
+or who has won the game.
+*/
+
+#message {
+    font-size: 24px;
+    color: #555f73;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+
+/*----------------------------- Game Board -----------------------------*/
+
+/*
+We keep using Flexbox, just like your original code.
+
+display: flex
+    Places the squares next to each other.
+
+flex-wrap: wrap
+    Allows squares to move onto the next row.
+
+gap: 10px
+    Adds spacing between the squares.
+
+width: 360px
+    Sets the preferred width of the board.
+
+max-width: 100%
+    Prevents the board from overflowing smaller screens.
+*/
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    width: 360px;
+    max-width: 100%;
+}
+
+
+/*----------------------------- Individual Squares -----------------------------*/
+
+/*
+Each square takes up one-third of the available width,
+minus the space needed for the gaps.
+
+aspect-ratio: 1/1
+    Keeps each square perfectly square.
+
+display: flex
+    Allows us to center the X and O inside the square.
+
+align-items: center
+    Centers the symbol vertically.
+
+justify-content: center
+    Centers the symbol horizontally.
+
+border-radius
+    Rounds the corners.
+
+box-shadow
+    Adds a subtle shadow.
+
+cursor: pointer
+    Changes the mouse cursor to a hand.
+
+transition
+    Makes hover effects appear smoothly.
+*/
+
+.sqr {
+    width: calc((100% - 20px) / 3);
+    aspect-ratio: 1/1;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    border: 2px solid #dce3ed;
+    border-radius: 15px;
+
+    font-size: 68px;
+    font-weight: bold;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/*----------------------------- Hover Effect -----------------------------*/
+
+/*
+:hover applies styling when the mouse moves over a square.
+
+transform: scale(1.05)
+    Makes the square slightly larger.
+
+background-color
+    Changes the background when hovered.
+
+We only apply the effect to empty squares.
+*/
+
+.sqr:not(.x):not(.o):hover {
+    background-color: #e3eaf5;
+    transform: scale(1.05);
+}
+
+
+/*----------------------------- Player X Styling -----------------------------*/
+
+/*
+When JavaScript adds the class "x" to a square,
+the X symbol becomes blue.
+*/
+
+.sqr.x {
+    color: #2563eb;
+}
+
+
+/*----------------------------- Player O Styling -----------------------------*/
+
+/*
+When JavaScript adds the class "o" to a square,
+the O symbol becomes coral-red.
+*/
+
+.sqr.o {
+    color: #f06464;
+}
+
+
+/*----------------------------- Reset Button -----------------------------*/
+
+/*
+Styles the Reset Game button.
+
+padding adds space inside the button.
+
+border-radius rounds the corners.
+
+margin-top adds space between the board and button.
+
+transition creates smooth hover effects.
+*/
+
+#reset {
+    margin-top: 30px;
+    padding: 14px 35px;
+
+    background-color: #253047;
+    color: white;
+
+    border: none;
+    border-radius: 10px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/*----------------------------- Reset Button Hover -----------------------------*/
+
+/*
+Changes the button's appearance when hovered.
+*/
+
+#reset:hover {
+    background-color: #3d5279;
+    transform: scale(1.05);
+}
